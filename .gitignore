@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+pelevin.json
+poetry.json
+.vscode/settings.json
