@@ -6,8 +6,11 @@ import logging
 logging.basicConfig(filename="stihbot.log", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+from os import environ
+config = environ.get('CONFIG', 'config.json')
+
 import json
-data = json.load(open('config.json'))
+data = json.load(open(config))
 
 import requests
 url = data['url']
