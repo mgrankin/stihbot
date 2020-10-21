@@ -1,13 +1,12 @@
-
 from os import environ
-config = environ.get('CONFIG', 'config.json')
+config = environ.get('CONFIG', 'poetry.json')
 
 from tendo import singleton
 me = singleton.SingleInstance(flavor_id=config)
 
 import logging
 
-logging.basicConfig(filename="stihbot.log", level=logging.INFO)
+logging.basicConfig(filename=f"{config}.log", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 import json

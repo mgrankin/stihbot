@@ -1,5 +1,8 @@
+from os import environ
+config = environ.get('CONFIG', 'poetry.json')
+
 from tendo import singleton
-me = singleton.SingleInstance()
+me = singleton.SingleInstance(flavor_id=config)
 
 import schedule
 import time
