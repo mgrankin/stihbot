@@ -19,7 +19,7 @@ length = data['length']
 def get_sample(text):
     response = requests.post(url, json={"prompt": text, "length": length, "num_samples": 1, "allow_linebreak": 'poetry' in url})
 
-    print(response)
+    logger.info(response)
     return json.loads(response.text)["replies"][0]
 
 import telebot
