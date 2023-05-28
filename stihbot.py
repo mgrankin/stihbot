@@ -15,9 +15,10 @@ data = json.load(open(config))
 import requests
 url = data['url']
 length = data['length']
+model = data['model'] 
 
 def get_sample(text):
-    response = requests.post(url, json={"prompt": text, "length": length, "num_samples": 1, "allow_linebreak": 'poetry' in url})
+    response = requests.post(url, json={"prompt": text, "model": model, "length": length, "num_samples": 1, "allow_linebreak": 'poetry' in url})
 
     logger.info(response)
     return json.loads(response.text)["replies"][0]
